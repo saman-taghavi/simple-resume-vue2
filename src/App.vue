@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <v-card CL color="blue" flat>
+      <v-card color="blue" flat>
         <v-card-title class="d-flex justify-center px-0" primary-title>
           <v-avatar class="rounded-circle" color="grey" size="164" tile>
             <v-img
@@ -83,7 +83,6 @@
               <v-btn
                 left
                 text
-                flat
                 target="_blacn"
                 :href="contatctInfo.websiteUrl"
                 class="font-weight-black black-text text-caption"
@@ -171,3 +170,14 @@ export default {
 </script>
 
 <style></style>
+<i18n>
+{
+  "en": {
+    "json": "En"
+  },
+  "fa": {
+    "json": "中文"
+  }
+}
+
+</i18n>

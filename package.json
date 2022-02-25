@@ -12,9 +12,12 @@
     "vite-plugin-components": "^0.13.2",
     "vite-plugin-vue2": "^1.4.0",
     "vue": "^2.6.12",
+    "vue-i18n": "8",
     "vuetify": "^2.5.8"
   },
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
+    "@yfwz100/vite-plugin-vue2-i18n": "^1.0.0-2",
     "eslint": "7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-import-resolver-alias": "^1.1.2",
