@@ -37,7 +37,10 @@
         <v-row>
           <v-col md="6" cols="12">
             <short-info :title="$t('Work Experience')">
-              <div v-for="(work, index) in workExperience" :key="index">
+              <div
+                v-for="(work, index) in translatedWorkExperience"
+                :key="index"
+              >
                 <p class="font-weight-black black-text ma-0 mt-3">
                   {{ work.place }}
                 </p>
@@ -70,7 +73,7 @@
           </v-col>
           <v-col md="6" cols="12">
             <short-info :title="$t('Achivments')">
-              <div v-for="(achive, index) in Achivments" :key="index">
+              <div v-for="(achive, index) in translatedAchivments" :key="index">
                 <p class="font-weight-black black-text ma-0 mt-3">
                   {{ achive.title }}
                 </p>
@@ -81,7 +84,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="6" offset-md="6">
+          <v-col md="6" cols="12" offset-md="6">
             <short-info :title="$t('Contact Info')">
               <p class="font-weight-black black-text ma-0">
                 {{ $t(contatctInfo.location) }}
@@ -164,7 +167,7 @@ export default {
         },
       ],
       Achivments: [
-        { title: "The Best", info: "Honorary title", from: " from myself" },
+        { title: "The Best", info: "Honorary title", from: "From myself" },
       ],
       contatctInfo: {
         location: "Isfahan, Iran",
@@ -177,10 +180,13 @@ export default {
   methods: {
     changeLang() {
       this.$i18n.locale = this.$i18n.locale === "en" ? "fa" : "en";
-      this.$vuetify.rtl = this.$vuetify.rtl === true ? false : true;
+      this.$vuetify.rtl = this.$i18n.locale === "en" ? false : true;
     },
   },
   computed: {
+    isEnglish() {
+      return this.$i18n.locale === "en";
+    },
     myName() {
       return this.$i18n.t("myName");
     },
@@ -188,37 +194,52 @@ export default {
       return this.$i18n.t("shortInfo");
     },
     translatedSkills() {
+      if (this.isEnglish) {
+        return this.skills;
+      }
       return this.skills.map((item) => ({
-        name: this.$t(item.name),
+        name: this.$t(`skill.${item.name}`),
         proficency: item.proficency,
       }));
     },
     translatedLanguageSkills() {
+      if (this.isEnglish) {
+        return this.languageSkills;
+      }
       return this.languageSkills.map((item) => ({
-        name: this.$t(item.name),
+        name: this.$t(`language.${item.name}`),
         proficency: item.proficency,
       }));
     },
     translatedWorkExperience() {
+      if (this.isEnglish) {
+        return this.workExperience;
+      }
       return this.workExperience.map((item) => ({
-        duration: this.$t(item.duration),
-        position: this.$t(item.position),
-        place: this.$t(item.place),
+        duration: this.$t(`experience.${item.duration}`),
+        position: this.$t(`experience.${item.position}`),
+        place: this.$t(`experience.${item.place}`),
       }));
     },
     translatedEducationHistory() {
+      if (this.isEnglish) {
+        return this.educationHistory;
+      }
       return this.educationHistory.map((item) => ({
-        duration: this.$t(item.duration),
-        place: this.$t(item.place),
-        degree: this.$t(item.position),
-        field: this.$t(item.field),
+        duration: this.$t(`education.${item.duration}`),
+        place: this.$t(`education.${item.place}`),
+        degree: this.$t(`education.${item.degree}`),
+        field: this.$t(`education.${item.field}`),
       }));
     },
     translatedAchivments() {
+      if (this.isEnglish) {
+        return this.Achivments;
+      }
       return this.Achivments.map((item) => ({
-        from: this.$t(item.from),
-        info: this.$t(item.info),
-        title: this.$t(item.title),
+        from: this.$t(`achivments.${item.from}`),
+        info: this.$t(`achivments.${item.info}`),
+        title: this.$t(`achivments.${item.title}`),
       }));
     },
   },
@@ -244,10 +265,46 @@ export default {
     "Education":"تحصیلات",
     "Achivments":"افتخارات",
     "Contact Info":"راه های ارتباط با من",
-    "Persian":"فارسی",
     "my github page":"صفحه گیت هاب من",
-    "python":"پایتون"
-  }
-}
+    "Isfahan, Iran":"اصفهان، ایران",
+    "skill":{
+      "python":"پایتون",
+      "vue":"vue",
+      "pandas":"pandas",
+      "numpy":"numpy",
+      "vuetify":"vuetify",
+      "javaScript":"javaScript"
+    },
+    "language":{
+      "Persian":"فارسی",
+      "Spanish":"اسپانیایی",
+      "English":"انگلیسی",
+    },
+    "achivments":{
+      "The Best":"بهترین" ,
+      "From myself":"از طرف خودم😉" ,
+      "Honorary title":"لقب افتخاری" ,
+    },
+    "education":{
+      "Ferdowsi University of Mashhad":"دانشگاه فردوسی مشهد",
+      "from 1394 to 1398":"از 1394 تا 1398",
+      "English Language and Literature":"ادبیات و زبان انگلیسی",
+      "B":{
+        "A":"کارشناسی"
+      },
+      "M":{
+        "Sc":"کارشناسی ارشد"
+      }
+    },
+    "experience":{
+       
+        "Junior Front-End developer":"توسعه دهنده فرانت اند جونیور",
+          "pelak 42":"پ 42",
+          "from khordad of 1400 to Aban 1400":"از خرداد 1400 تا آبان 1400",
+      
+    },
+
+  }}
+
 
 </i18n>
