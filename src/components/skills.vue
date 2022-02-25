@@ -2,12 +2,14 @@
   <v-card flat color="transparent">
     <v-card-title class="font-weight-black" primary-title>
       {{ skillSetName }}
+      {{ $vuetify.breakpoint.name }}
     </v-card-title>
     <v-card-text class="text-justify">
-      <v-row dense>
+      <v-row dense justify-md="start" align="center">
         <v-col
-          cols="3"
-          class="py-2"
+          cols="6"
+          sm="3"
+          class="d-flex justify-center"
           v-for="skill in skillSet"
           :key="skill.name"
         >
