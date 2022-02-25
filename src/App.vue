@@ -30,31 +30,7 @@
             </v-card>
           </v-col>
           <v-col md="6" cols="12">
-            <v-card flat color="transparent">
-              <v-card-title class="font-weight-black" primary-title>
-                skills
-              </v-card-title>
-              <v-card-text class="text-justify">
-                <v-row dense>
-                  <v-col
-                    cols="3"
-                    class="py-2"
-                    v-for="skill in skills"
-                    :key="skill.name"
-                  >
-                    <v-progress-circular
-                      :rotate="-90"
-                      :size="100"
-                      :width="7"
-                      :value="skill.proficency"
-                      color="primary"
-                    >
-                      <div class="ma-5 text-center">{{ skill.name }}</div>
-                    </v-progress-circular>
-                  </v-col>
-                </v-row>
-              </v-card-text>
-            </v-card>
+            <skills skillSetName="skills" :skillSet="skills"></skills>
           </v-col>
         </v-row>
         <v-row>
@@ -75,31 +51,10 @@
             </v-card>
           </v-col>
           <v-col md="6" cols="12">
-            <v-card flat color="transparent">
-              <v-card-title class="font-weight-black" primary-title>
-                Language skills
-              </v-card-title>
-              <v-card-text class="text-justify">
-                <v-row dense>
-                  <v-col
-                    cols="3"
-                    class="py-2"
-                    v-for="skill in languageSkills"
-                    :key="skill.name"
-                  >
-                    <v-progress-circular
-                      :rotate="-90"
-                      :size="100"
-                      :width="7"
-                      :value="skill.proficency"
-                      color="primary"
-                    >
-                      <div class="ma-5 text-center">{{ skill.name }}</div>
-                    </v-progress-circular>
-                  </v-col>
-                </v-row>
-              </v-card-text>
-            </v-card>
+            <skills
+              skillSetName="Language skills"
+              :skillSet="languageSkills"
+            ></skills>
           </v-col>
         </v-row>
       </v-container>
@@ -107,8 +62,12 @@
   </v-app>
 </template>
 <script>
+import skills from "@/components/skills.vue";
 export default {
   name: "home",
+  components: {
+    skills,
+  },
   data() {
     return {
       name: "saman taghavi",
