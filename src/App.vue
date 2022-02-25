@@ -28,7 +28,10 @@
             </short-info>
           </v-col>
           <v-col md="6" cols="12">
-            <skills :skillSetName="$t('Skills')" :skillSet="skills"></skills>
+            <skills
+              :skillSetName="$t('Skills')"
+              :skillSet="translatedSkills"
+            ></skills>
           </v-col>
         </v-row>
         <v-row>
@@ -36,29 +39,32 @@
             <short-info :title="$t('Work Experience')">
               <div v-for="(work, index) in workExperience" :key="index">
                 <p class="font-weight-black black-text ma-0 mt-3">
-                  {{ $t(work.place) }}
+                  {{ work.place }}
                 </p>
-                <p class="ma-0">{{ $t(work.position) }}</p>
-                <p class="ma-0">{{ $t(work.duration) }}</p>
+                <p class="ma-0">{{ work.position }}</p>
+                <p class="ma-0">{{ work.duration }}</p>
               </div></short-info
             >
           </v-col>
           <v-col md="6" cols="12">
             <skills
               :skillSetName="$t('Language skills')"
-              :skillSet="languageSkills"
+              :skillSet="translatedLanguageSkills"
             ></skills>
           </v-col>
         </v-row>
         <v-row>
           <v-col md="6" cols="12">
             <short-info :title="$t('Education')">
-              <div v-for="(edu, index) in educationHistory" :key="index">
+              <div
+                v-for="(edu, index) in translatedEducationHistory"
+                :key="index"
+              >
                 <p class="font-weight-black black-text ma-0 mt-3">
-                  {{ $t(edu.place) }}
+                  {{ edu.place }}
                 </p>
-                <p class="ma-0">{{ $t(edu.degree) }},{{ $t(edu.field) }}</p>
-                <p class="ma-0">{{ $t(edu.duration) }}</p>
+                <p class="ma-0">{{ edu.degree }},{{ edu.field }}</p>
+                <p class="ma-0">{{ edu.duration }}</p>
               </div>
             </short-info>
           </v-col>
@@ -66,10 +72,10 @@
             <short-info :title="$t('Achivments')">
               <div v-for="(achive, index) in Achivments" :key="index">
                 <p class="font-weight-black black-text ma-0 mt-3">
-                  {{ $t(achive.title) }}
+                  {{ achive.title }}
                 </p>
-                <p class="ma-0">{{ $t(achive.info) }}</p>
-                <p class="ma-0">{{ $t(achive.from) }}</p>
+                <p class="ma-0">{{ achive.info }}</p>
+                <p class="ma-0">{{ achive.from }}</p>
               </div>
             </short-info>
           </v-col>
@@ -125,6 +131,12 @@ export default {
         { name: "vue", proficency: 40 },
         { name: "vuetify", proficency: 70 },
       ],
+
+      languageSkills: [
+        { name: "Persian", proficency: 100 },
+        { name: "English", proficency: 80 },
+        { name: "Spanish", proficency: 10 },
+      ],
       workExperience: [
         {
           position: "Junior BPMS developer",
@@ -175,12 +187,39 @@ export default {
     shortInfo() {
       return this.$i18n.t("shortInfo");
     },
-    languageSkills() {
-      return [
-        { name: this.$t("Persian"), proficency: 100 },
-        { name: "English", proficency: 80 },
-        { name: "Spanish", proficency: 10 },
-      ];
+    translatedSkills() {
+      return this.skills.map((item) => ({
+        name: this.$t(item.name),
+        proficency: item.proficency,
+      }));
+    },
+    translatedLanguageSkills() {
+      return this.languageSkills.map((item) => ({
+        name: this.$t(item.name),
+        proficency: item.proficency,
+      }));
+    },
+    translatedWorkExperience() {
+      return this.workExperience.map((item) => ({
+        duration: this.$t(item.duration),
+        position: this.$t(item.position),
+        place: this.$t(item.place),
+      }));
+    },
+    translatedEducationHistory() {
+      return this.educationHistory.map((item) => ({
+        duration: this.$t(item.duration),
+        place: this.$t(item.place),
+        degree: this.$t(item.position),
+        field: this.$t(item.field),
+      }));
+    },
+    translatedAchivments() {
+      return this.Achivments.map((item) => ({
+        from: this.$t(item.from),
+        info: this.$t(item.info),
+        title: this.$t(item.title),
+      }));
     },
   },
 };
@@ -206,7 +245,8 @@ export default {
     "Achivments":"افتخارات",
     "Contact Info":"راه های ارتباط با من",
     "Persian":"فارسی",
-    "my github page":"صفحه گیت هاب من"
+    "my github page":"صفحه گیت هاب من",
+    "python":"پایتون"
   }
 }
 
