@@ -35,7 +35,7 @@ module.exports = {
       sass: {
         additionalData: [
           // vuetify variable overrides
-          '@import "@/assets/styles/variables"',
+          '@import "@/styles/variables"',
           "",
         ].join("\n"),
       },
