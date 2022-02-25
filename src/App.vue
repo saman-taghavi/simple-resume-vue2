@@ -47,6 +47,53 @@
             ></skills>
           </v-col>
         </v-row>
+        <v-row>
+          
+          <v-col md="6" cols="12">
+            <short-info title="Education">
+              <div v-for="(edu, index) in educationHistory" :key="index">
+                <p class="font-weight-black black-text ma-0 mt-3">
+                  {{ edu.place }}
+                </p>
+                <p class="ma-0">{{ edu.degree }},{{ edu.field }}</p>
+                <p class="ma-0">{{ edu.duration }}</p>
+              </div>
+            </short-info>
+          </v-col>
+          <v-col md="6" cols="12">
+            <short-info title="Achivments">
+              <div v-for="(achive, index) in Achivments" :key="index">
+                <p class="font-weight-black black-text ma-0 mt-3">
+                  {{ achive.title }}
+                </p>
+                <p class="ma-0">{{ achive.info }}</p>
+                <p class="ma-0">{{ achive.from }}</p>
+              </div>
+            </short-info>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="6" offset="6">
+            <short-info title="Contact Info">
+              <p class="font-weight-black black-text ma-0">
+                {{ contatctInfo.location }}
+              </p>
+              <p class="font-weight-black black-text ma-0">
+                {{ contatctInfo.email }}
+              </p>
+              <v-btn
+                text
+                flat
+                target="_blacn"
+                :href="contatctInfo.websiteUrl"
+                class="font-weight-black black-text ma-0"
+              >
+                <v-icon left> microsoft-github </v-icon>
+                {{ contatctInfo.websiteName }}
+              </v-btn>
+            </short-info>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
@@ -93,6 +140,29 @@ export default {
         { name: "English", proficency: 80 },
         { name: "Spanish", proficency: 10 },
       ],
+      educationHistory: [
+        {
+          place: "Ferdowsi University of Mashhad",
+          duration: "from 1394 to 1398",
+          field: "English Language and Literature",
+          degree: "B.A",
+        },
+        {
+          place: "Isfahan University",
+          duration: "Currently studying here",
+          field: "Computational Linguistics",
+          degree: "M.Sc",
+        },
+      ],
+      Achivments: [
+        { title: "The Best", info: "Honorary title", from: " from myself" },
+      ],
+      contatctInfo: {
+        location: "Isfahan, Iran",
+        email: "samantaghavisani@gmail.com",
+        websiteUrl: "https://github.com/saman-taghavi",
+        websiteName: "github page",
+      },
     };
   },
 };
