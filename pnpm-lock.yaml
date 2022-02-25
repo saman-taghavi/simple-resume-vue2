@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@mdi/font': ^6.5.95
   eslint: 7.32.0
   eslint-config-airbnb-base: ^14.2.1
   eslint-import-resolver-alias: ^1.1.2
@@ -12,19 +13,16 @@ specifiers:
   vite-plugin-components: ^0.13.2
   vite-plugin-vue2: ^1.4.0
   vue: ^2.6.12
-  vue-router: ^3.5.2
   vue-template-compiler: ^2.6.14
   vuetify: ^2.5.8
-  vuex: ^3.6.2
 
 dependencies:
+  '@mdi/font': 6.5.95
   material-design-icons: 3.0.1
   vite-plugin-components: 0.13.3_vite@2.8.4
   vite-plugin-vue2: 1.9.3_f79f4155fa4af4ea98842834628f5490
   vue: 2.6.14
-  vue-router: 3.5.3
   vuetify: 2.6.3_vue@2.6.14
-  vuex: 3.6.2_vue@2.6.14
 
 devDependencies:
   eslint: 7.32.0
@@ -420,6 +418,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.0.5
       '@jridgewell/sourcemap-codec': 1.4.11
+    dev: false
+
+  /@mdi/font/6.5.95:
+    resolution: {integrity: sha512-ES5rj6J39FUkHe/b3C9SJs8bqIungYhuU7rBINTBaHOv/Ce4RCb3Gw08CZVl32W33UEkgRkzyWaIedV4at+QHg==}
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:
@@ -2381,10 +2383,6 @@ packages:
       - supports-color
     dev: true
 
-  /vue-router/3.5.3:
-    resolution: {integrity: sha512-FUlILrW3DGitS2h+Xaw8aRNvGTwtuaxrRkNSHWTizOfLUie7wuYwezeZ50iflRn8YPV5kxmU2LQuu3nM/b3Zsg==}
-    dev: false
-
   /vue-template-compiler/2.6.14:
     resolution: {integrity: sha512-ODQS1SyMbjKoO1JBJZojSw6FE4qnh9rIpUZn2EUT86FKizx9uH5z6uXiIrm4/Nb/gwxTi/o17ZDEGWAXHvtC7g==}
     dependencies:
@@ -2404,14 +2402,6 @@ packages:
     resolution: {integrity: sha512-Zfiz2DZnp1DvxqGaSCGqGjv4mPNAurJJ5Xwy7bzNzIySGLlRdlO8UH6aNWnSgfaAsLP3voxadSGDm6tKM8Ys7w==}
     peerDependencies:
       vue: ^2.6.4
-    dependencies:
-      vue: 2.6.14
-    dev: false
-
-  /vuex/3.6.2_vue@2.6.14:
-    resolution: {integrity: sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==}
-    peerDependencies:
-      vue: ^2.0.0
     dependencies:
       vue: 2.6.14
     dev: false
