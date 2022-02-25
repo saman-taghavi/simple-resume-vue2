@@ -81,14 +81,17 @@
                 {{ contatctInfo.email }}
               </p>
               <v-btn
+                left
                 text
                 flat
                 target="_blacn"
                 :href="contatctInfo.websiteUrl"
-                class="font-weight-black black-text ma-0 pa-0"
+                class="font-weight-black black-text text-caption"
               >
-                <v-icon left> mdi-github</v-icon>
-                {{ contatctInfo.websiteName }}
+                <v-icon left large> mdi-github</v-icon>
+                <p class="font-weight-black black-text ma-0">
+                  {{ contatctInfo.websiteName }}
+                </p>
               </v-btn>
             </short-info>
           </v-col>
