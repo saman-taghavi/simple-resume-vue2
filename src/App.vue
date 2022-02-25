@@ -5,7 +5,7 @@
         <v-card-title class="d-flex justify-center px-0" primary-title>
           <v-avatar class="rounded-circle" color="grey" size="164" tile>
             <v-img
-              src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
+              src="https://avatars.githubusercontent.com/u/66922536"
             ></v-img>
           </v-avatar>
         </v-card-title>
