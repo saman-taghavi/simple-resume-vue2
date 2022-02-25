@@ -2,7 +2,6 @@
   <v-card flat color="transparent">
     <v-card-title class="font-weight-black" primary-title>
       {{ skillSetName }}
-      {{ $vuetify.breakpoint.name }}
     </v-card-title>
     <v-card-text class="text-justify">
       <v-row dense justify-md="start" align="center">
