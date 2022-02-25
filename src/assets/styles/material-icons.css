@@ -36,3 +36,8 @@
   /* Support for IE. */
   font-feature-settings: "liga";
 }
+
+/* hide scrollbar  */
+html {
+  overflow-y: auto;
+}
