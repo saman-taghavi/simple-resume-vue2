@@ -48,7 +48,6 @@
           </v-col>
         </v-row>
         <v-row>
-          
           <v-col md="6" cols="12">
             <short-info title="Education">
               <div v-for="(edu, index) in educationHistory" :key="index">
@@ -86,9 +85,9 @@
                 flat
                 target="_blacn"
                 :href="contatctInfo.websiteUrl"
-                class="font-weight-black black-text ma-0"
+                class="font-weight-black black-text ma-0 pa-0"
               >
-                <v-icon left> microsoft-github </v-icon>
+                <v-icon left> mdi-github</v-icon>
                 {{ contatctInfo.websiteName }}
               </v-btn>
             </short-info>
@@ -161,7 +160,7 @@ export default {
         location: "Isfahan, Iran",
         email: "samantaghavisani@gmail.com",
         websiteUrl: "https://github.com/saman-taghavi",
-        websiteName: "github page",
+        websiteName: "my github page",
       },
     };
   },
