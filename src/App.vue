@@ -20,14 +20,9 @@
       <v-container fluid>
         <v-row>
           <v-col md="6" cols="12">
-            <v-card flat color="transparent">
-              <v-card-title class="font-weight-black" primary-title>
-                {{ about.me }}
-              </v-card-title>
-              <v-card-text class="text-justify">
-                {{ about.text }}
-              </v-card-text>
-            </v-card>
+            <short-info :title="about.me">
+              {{ about.text }}
+            </short-info>
           </v-col>
           <v-col md="6" cols="12">
             <skills skillSetName="skills" :skillSet="skills"></skills>
@@ -35,20 +30,15 @@
         </v-row>
         <v-row>
           <v-col md="6" cols="12">
-            <v-card flat color="transparent">
-              <v-card-title class="font-weight-black" primary-title>
-                Work Experience
-              </v-card-title>
-              <v-card-text class="text-justify">
-                <div v-for="(work, index) in workExperience" :key="index">
-                  <p class="font-weight-black black-text ma-0 mt-3">
-                    {{ work.place }}
-                  </p>
-                  <p class="ma-0">{{ work.position }}</p>
-                  <p class="ma-0">{{ work.duration }}</p>
-                </div>
-              </v-card-text>
-            </v-card>
+            <short-info title=" Work Experience">
+              <div v-for="(work, index) in workExperience" :key="index">
+                <p class="font-weight-black black-text ma-0 mt-3">
+                  {{ work.place }}
+                </p>
+                <p class="ma-0">{{ work.position }}</p>
+                <p class="ma-0">{{ work.duration }}</p>
+              </div></short-info
+            >
           </v-col>
           <v-col md="6" cols="12">
             <skills
@@ -63,10 +53,12 @@
 </template>
 <script>
 import skills from "@/components/skills.vue";
+import shortInfo from "@/components/shortInfo.vue";
 export default {
   name: "home",
   components: {
     skills,
+    shortInfo,
   },
   data() {
     return {
