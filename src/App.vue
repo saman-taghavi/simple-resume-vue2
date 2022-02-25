@@ -81,7 +81,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="6" offset="6">
+          <v-col cols="6" offset-md="6">
             <short-info :title="$t('Contact Info')">
               <p class="font-weight-black black-text ma-0">
                 {{ $t(contatctInfo.location) }}
