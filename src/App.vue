@@ -57,6 +57,51 @@
             </v-card>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col md="6" cols="12">
+            <v-card flat color="transparent">
+              <v-card-title class="font-weight-black" primary-title>
+                Work Experience
+              </v-card-title>
+              <v-card-text class="text-justify">
+                <div v-for="(work, index) in workExperience" :key="index">
+                  <p class="font-weight-black black-text ma-0 mt-3">
+                    {{ work.place }}
+                  </p>
+                  <p class="ma-0">{{ work.position }}</p>
+                  <p class="ma-0">{{ work.duration }}</p>
+                </div>
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <v-col md="6" cols="12">
+            <v-card flat color="transparent">
+              <v-card-title class="font-weight-black" primary-title>
+                Language skills
+              </v-card-title>
+              <v-card-text class="text-justify">
+                <v-row dense>
+                  <v-col
+                    cols="3"
+                    class="py-2"
+                    v-for="skill in languageSkills"
+                    :key="skill.name"
+                  >
+                    <v-progress-circular
+                      :rotate="-90"
+                      :size="100"
+                      :width="7"
+                      :value="skill.proficency"
+                      color="primary"
+                    >
+                      <div class="ma-5 text-center">{{ skill.name }}</div>
+                    </v-progress-circular>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
@@ -79,6 +124,23 @@ export default {
         { name: "pandas", proficency: 20 },
         { name: "vue", proficency: 40 },
         { name: "vuetify", proficency: 70 },
+      ],
+      workExperience: [
+        {
+          position: "Junior BPMS developer",
+          place: "Pascal System Pooya",
+          duration: "from Azar of 1398 to Day 1399",
+        },
+        {
+          position: "Junior Front-End developer",
+          place: "pelak 42",
+          duration: "from khordad of 1400 to Aban 1400",
+        },
+      ],
+      languageSkills: [
+        { name: "Persian", proficency: 100 },
+        { name: "English", proficency: 80 },
+        { name: "Spanish", proficency: 10 },
       ],
     };
   },
