@@ -5,46 +5,49 @@ module.exports = {
     es2020: true,
     node: true,
   },
-  extends: [
-    'plugin:vue/essential',
-    'airbnb-base',
-  ],
+  extends: ["plugin:vue/essential", "airbnb-base"],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: "module",
   },
-  plugins: [
-    'vue',
-  ],
+  plugins: ["vue"],
   settings: {
-    'import/resolver': {
+    "import/resolver": {
       alias: {
-        map: [
-          ['@', './src'],
-        ],
-        extensions: ['.js', '.jsx', '.vue', '.json'],
+        map: [["@", "./src"]],
+        extensions: [".js", ".jsx", ".vue", ".json"],
       },
     },
   },
   rules: {
-    'import/extensions': ['error', 'always', {
-      js: 'never',
-      mjs: 'never',
-      jsx: 'never',
-      ts: 'never',
-      tsx: 'never',
-    }],
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'state', // for vuex state
-        'acc', // for reduce accumulators
-        'e', // for e.returnvalue
-      ],
-    }],
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'max-len': 'off',
-    'no-async-promise-executor': 'off',
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        js: "never",
+        mjs: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never",
+      },
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        props: true,
+        ignorePropertyModificationsFor: [
+          "state", // for vuex state
+          "acc", // for reduce accumulators
+          "e", // for e.returnvalue
+        ],
+      },
+    ],
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "max-len": "off",
+    "no-async-promise-executor": "off",
+    "linebreak-style": 0,
+    allowTemplateLiterals: true,
+    avoidEscape: true,
   },
 };
