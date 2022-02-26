@@ -17,7 +17,7 @@
             :size="100"
             :width="3"
             :value="skill.proficency"
-            color="primary"
+            :color="getColor(skill)"
           >
             <div class="ma-5 text-center">{{ skill.name }}</div>
           </v-progress-circular>
@@ -41,6 +41,14 @@ export default {
     },
   },
   mounted() {
+    let colors = [
+      "warning",
+      "success",
+      "accent",
+      "error",
+      "secondary",
+      "primary",
+    ];
     this.skillSet.map((item) => {
       let percent = item.proficency;
       let intervalTime = 400;
@@ -50,15 +58,23 @@ export default {
       item.proficency = 0;
       let newYearCountdown = setInterval(function () {
         item.proficency++;
+        if (item.proficency % 10 === 0) {
+          item.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+
         if (percent <= item.proficency) {
-          console.log("HAPPY NEW YEAR!!");
           clearInterval(newYearCountdown);
         }
       }, intervalTime);
     });
   },
   methods: {
-    addPercentage(intervalID) {},
+    getColor(item) {
+      if (item?.color) {
+        return item.color;
+      }
+      return "primary";
+    },
   },
 };
 </script>
