@@ -15,7 +15,7 @@
           <v-progress-circular
             :rotate="-90"
             :size="100"
-            :width="7"
+            :width="3"
             :value="skill.proficency"
             color="primary"
           >
@@ -39,6 +39,26 @@ export default {
       type: String,
       default: "skill Set Name",
     },
+  },
+  mounted() {
+    this.skillSet.map((item) => {
+      let percent = item.proficency;
+      let intervalTime = 400;
+      if (percent > 40) {
+        intervalTime = 80;
+      }
+      item.proficency = 0;
+      let newYearCountdown = setInterval(function () {
+        item.proficency++;
+        if (percent <= item.proficency) {
+          console.log("HAPPY NEW YEAR!!");
+          clearInterval(newYearCountdown);
+        }
+      }, intervalTime);
+    });
+  },
+  methods: {
+    addPercentage(intervalID) {},
   },
 };
 </script>
