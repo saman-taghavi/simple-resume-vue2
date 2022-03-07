@@ -17,7 +17,7 @@
             :size="100"
             :width="3"
             :value="skill.proficency"
-            :color="getColor(skill)"
+            :color="progressColor"
           >
             <div class="ma-5 text-center">{{ skill.name }}</div>
           </v-progress-circular>
@@ -39,16 +39,12 @@ export default {
       type: String,
       default: "skill Set Name",
     },
+    progressColor: {
+      type: String,
+      default: "primary",
+    },
   },
   mounted() {
-    let colors = [
-      "warning",
-      "success",
-      "accent",
-      "error",
-      "secondary",
-      "primary",
-    ];
     this.skillSet.map((item) => {
       let percent = item.proficency;
       let intervalTime = 400;
@@ -58,9 +54,6 @@ export default {
       item.proficency = 0;
       let newYearCountdown = setInterval(function () {
         item.proficency++;
-        if (item.proficency % 10 === 0) {
-          item.color = colors[Math.floor(Math.random() * colors.length)];
-        }
 
         if (percent <= item.proficency) {
           clearInterval(newYearCountdown);
@@ -68,14 +61,7 @@ export default {
       }, intervalTime);
     });
   },
-  methods: {
-    getColor(item) {
-      if (item?.color) {
-        return item.color;
-      }
-      return "primary";
-    },
-  },
+  methods: {},
 };
 </script>
 
