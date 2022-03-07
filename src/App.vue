@@ -6,8 +6,9 @@
           <v-icon>mdi-translate</v-icon>
         </v-btn>
         <v-card-title class="d-flex justify-center px-0" primary-title>
-          <v-avatar class="rounded-circle" color="grey" size="164" tile>
+          <v-avatar size="164" tile>
             <v-img
+              class="hex-img"
               src="https://avatars.githubusercontent.com/u/66922536"
             ></v-img>
           </v-avatar>
@@ -246,7 +247,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.hex-img {
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+}
+</style>
 <i18n>
 {
   "en": {
