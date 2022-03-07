@@ -21,86 +21,94 @@
     </v-card>
     <v-container fluid>
       <v-row>
-        <v-col md="6" cols="12">
-          <short-info :title="$t(about.me)">
-            {{ $t(about.text) }}
-          </short-info>
+        <v-col cols="6">
+          <v-row>
+            <v-col cols="12">
+              <short-info :title="$t(about.me)">
+                {{ $t(about.text) }}
+              </short-info>
+            </v-col>
+            <v-col>
+              <short-info :title="$t('Work Experience')">
+                <div
+                  v-for="(work, index) in translatedWorkExperience"
+                  :key="index"
+                >
+                  <p class="font-weight-black black-text ma-0 mt-3">
+                    {{ work.place }}
+                  </p>
+                  <p class="ma-0">{{ work.position }}</p>
+                  <p class="ma-0">{{ work.duration }}</p>
+                </div></short-info
+              >
+            </v-col>
+            <v-col cols="12">
+              <short-info :title="$t('Education')">
+                <div
+                  v-for="(edu, index) in translatedEducationHistory"
+                  :key="index"
+                >
+                  <p class="font-weight-black black-text ma-0 mt-3">
+                    {{ edu.place }}
+                  </p>
+                  <p class="ma-0">{{ edu.degree }},{{ edu.field }}</p>
+                  <p class="ma-0">{{ edu.duration }}</p>
+                </div>
+              </short-info>
+            </v-col>
+            <v-col>
+              <short-info :title="$t('Contact Info')">
+                <p class="font-weight-black black-text ma-0">
+                  {{ $t(contatctInfo.location) }}
+                </p>
+                <p class="font-weight-black black-text ma-0">
+                  {{ $t(contatctInfo.email) }}
+                </p>
+                <v-btn
+                  left
+                  text
+                  target="_blacn"
+                  :href="contatctInfo.websiteUrl"
+                  class="font-weight-black black-text text-caption"
+                >
+                  <v-icon left large> mdi-github</v-icon>
+                  <p class="font-weight-black black-text ma-0">
+                    {{ $t(contatctInfo.websiteName) }}
+                  </p>
+                </v-btn>
+              </short-info>
+            </v-col>
+          </v-row>
         </v-col>
-        <v-col md="6" cols="12">
-          <skills
-            :skillSetName="$t('Skills')"
-            :skillSet="translatedSkills"
-          ></skills>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col md="6" cols="12">
-          <short-info :title="$t('Work Experience')">
-            <div v-for="(work, index) in translatedWorkExperience" :key="index">
-              <p class="font-weight-black black-text ma-0 mt-3">
-                {{ work.place }}
-              </p>
-              <p class="ma-0">{{ work.position }}</p>
-              <p class="ma-0">{{ work.duration }}</p>
-            </div></short-info
-          >
-        </v-col>
-        <v-col md="6" cols="12">
-          <skills
-            :skillSetName="$t('Language skills')"
-            :skillSet="translatedLanguageSkills"
-          ></skills>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col md="6" cols="12">
-          <short-info :title="$t('Education')">
-            <div
-              v-for="(edu, index) in translatedEducationHistory"
-              :key="index"
-            >
-              <p class="font-weight-black black-text ma-0 mt-3">
-                {{ edu.place }}
-              </p>
-              <p class="ma-0">{{ edu.degree }},{{ edu.field }}</p>
-              <p class="ma-0">{{ edu.duration }}</p>
-            </div>
-          </short-info>
-        </v-col>
-        <v-col md="6" cols="12">
-          <short-info :title="$t('Achivments')">
-            <div v-for="(achive, index) in translatedAchivments" :key="index">
-              <p class="font-weight-black black-text ma-0 mt-3">
-                {{ achive.title }}
-              </p>
-              <p class="ma-0">{{ achive.info }}</p>
-              <p class="ma-0">{{ achive.from }}</p>
-            </div>
-          </short-info>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col md="6" cols="12" offset-md="6">
-          <short-info :title="$t('Contact Info')">
-            <p class="font-weight-black black-text ma-0">
-              {{ $t(contatctInfo.location) }}
-            </p>
-            <p class="font-weight-black black-text ma-0">
-              {{ $t(contatctInfo.email) }}
-            </p>
-            <v-btn
-              left
-              text
-              target="_blacn"
-              :href="contatctInfo.websiteUrl"
-              class="font-weight-black black-text text-caption"
-            >
-              <v-icon left large> mdi-github</v-icon>
-              <p class="font-weight-black black-text ma-0">
-                {{ $t(contatctInfo.websiteName) }}
-              </p>
-            </v-btn>
-          </short-info>
+        <v-col cols="6">
+          <v-row>
+            <v-col cols="12">
+              <skills
+                :skillSetName="$t('Skills')"
+                :skillSet="translatedSkills"
+              ></skills>
+            </v-col>
+            <v-col>
+              <skills
+                :skillSetName="$t('Language skills')"
+                :skillSet="translatedLanguageSkills"
+              ></skills>
+            </v-col>
+            <v-col cols="12">
+              <short-info :title="$t('Achivments')">
+                <div
+                  v-for="(achive, index) in translatedAchivments"
+                  :key="index"
+                >
+                  <p class="font-weight-black black-text ma-0 mt-3">
+                    {{ achive.title }}
+                  </p>
+                  <p class="ma-0">{{ achive.info }}</p>
+                  <p class="ma-0">{{ achive.from }}</p>
+                </div>
+              </short-info>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
