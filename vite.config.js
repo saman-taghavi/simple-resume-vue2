@@ -7,6 +7,7 @@ import { createI18nPlugin } from "@yfwz100/vite-plugin-vue2-i18n";
  * @type {import('vite').UserConfig}
  */
 module.exports = {
+  base: "/simple-resume-vue2/",
   resolve: {
     alias: [
       {
