@@ -1,6 +1,6 @@
 <template>
   <v-card flat color="transparent">
-    <v-card-title class="font-weight-black" primary-title>
+    <v-card-title class="font-weight-black" :class="titleClass" primary-title>
       {{ skillSetName }}
     </v-card-title>
     <v-card-text class="text-justify">
@@ -18,8 +18,17 @@
             :width="3"
             :value="skill.proficency"
             :color="progressColor"
+            :class="skillClass"
+            class=""
+            :style="progressUnderlayStyle"
           >
-            <div class="ma-5 text-center">{{ skill.name }}</div>
+            <div
+              class="ma-5 text-center"
+              :style="skillTextClassStyle"
+              :class="skillTextClass"
+            >
+              {{ skill.name }}
+            </div>
           </v-progress-circular>
         </v-col>
       </v-row>
@@ -43,6 +52,29 @@ export default {
       type: String,
       default: "primary",
     },
+    progressUnderlayStyle: {
+      type: Object,
+      default: () => {
+        return {
+          "--underlay-stroke": "transparent",
+        };
+      },
+    },
+    titleClass: {
+      type: String,
+      default: "",
+    },
+    skillClass: {
+      type: String,
+      default: "",
+    },
+    skillTextClass: {
+      /*
+      set skill text class
+      */
+      type: String,
+      default: "",
+    },
   },
   mounted() {
     this.skillSet.map((item) => {
@@ -65,4 +97,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+::v-deep .v-progress-circular__underlay {
+  stroke: var(--underlay-stroke);
+}
+</style>
