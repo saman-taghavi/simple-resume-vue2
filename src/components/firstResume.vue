@@ -80,18 +80,22 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col cols="6">
+        <v-col class="blue red--text text--lighten-1" cols="6">
           <v-row>
             <v-col cols="12">
               <skills
                 :skillSetName="$t('Skills')"
                 :skillSet="translatedSkills"
+                progressColor="white"
+                skillTextClass="white--text"
               ></skills>
             </v-col>
             <v-col>
               <skills
                 :skillSetName="$t('Language skills')"
                 :skillSet="translatedLanguageSkills"
+                progressColor="white"
+                skillTextClass="white--text"
               ></skills>
             </v-col>
             <v-col cols="12">
