@@ -21,7 +21,7 @@
     </v-card>
     <v-container fluid>
       <v-row>
-        <v-col cols="6">
+        <v-col md="6" cols="12">
           <v-row>
             <v-col cols="12">
               <short-info :title="$t(about.me)">
@@ -83,7 +83,8 @@
         <v-col
           :color="themeColor"
           class="green red--text text--lighten-1"
-          cols="6"
+          cols="12"
+          md="6"
         >
           <v-row>
             <v-col cols="12">
