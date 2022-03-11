@@ -7,6 +7,7 @@
       <v-card-title class="d-flex justify-center px-0" primary-title>
         <v-avatar size="164" tile>
           <v-img
+            lazy-src="/src/assets/logo.png"
             class="hex-img"
             src="https://avatars.githubusercontent.com/u/66922536"
           ></v-img>
