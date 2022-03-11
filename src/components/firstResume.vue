@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card color="blue" flat>
+    <v-card color="lighten-1" :class="themeColor" flat>
       <v-btn @click="changeLang" icon color="primary">
         <v-icon>mdi-translate</v-icon>
       </v-btn>
@@ -80,7 +80,11 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col class="blue red--text text--lighten-1" cols="6">
+        <v-col
+          :color="themeColor"
+          class="green red--text text--lighten-1"
+          cols="6"
+        >
           <v-row>
             <v-col cols="12">
               <skills
@@ -130,6 +134,7 @@ export default {
   },
   data() {
     return {
+      themeColor: "green",
       about: {
         me: "About me",
         text: "AboutText",
