@@ -75,6 +75,13 @@ export default {
       type: String,
       default: "",
     },
+    skillTextClassStyle: {
+      /*
+      set skill text class
+      */
+      type: String,
+      default: "",
+    },
   },
   mounted() {
     this.skillSet.map((item) => {
