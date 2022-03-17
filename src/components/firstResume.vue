@@ -1,12 +1,13 @@
 <template>
   <div>
-    <v-card color="blue" flat>
-      <v-btn @click="changeLang" icon color="primary">
+    <v-card :class="themeColor" class="blue-gradient-rotated rounded-0" flat>
+      <v-btn @click="changeLang" class="float-left" icon color="primary">
         <v-icon>mdi-translate</v-icon>
       </v-btn>
       <v-card-title class="d-flex justify-center px-0" primary-title>
         <v-avatar size="164" tile>
           <v-img
+            lazy-src="/src/assets/logo.png"
             class="hex-img"
             src="https://avatars.githubusercontent.com/u/66922536"
           ></v-img>
@@ -21,7 +22,7 @@
     </v-card>
     <v-container fluid>
       <v-row>
-        <v-col cols="6">
+        <v-col md="6" cols="12">
           <v-row>
             <v-col cols="12">
               <short-info :title="$t(about.me)">
@@ -80,7 +81,18 @@
             </v-col>
           </v-row>
         </v-col>
-        <v-col class="blue red--text text--lighten-1" cols="6">
+        <v-col
+          :color="themeColor"
+          :class="
+            this.$vuetify.rtl
+              ? 'blue-gradient-rotated-fa'
+              : 'blue-gradient-rotated'
+          "
+          class="red--text text--lighten-1 rounded-0"
+          elevation="0"
+          cols="12"
+          md="6"
+        >
           <v-row>
             <v-col cols="12">
               <skills
@@ -130,6 +142,7 @@ export default {
   },
   data() {
     return {
+      themeColor: "green",
       about: {
         me: "About me",
         text: "AboutText",
@@ -265,6 +278,18 @@ export default {
     0% 60%,
     10% 20%
   );
+}
+.blue-gradient {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+.blue-gradient-rotated {
+  background-color: #0093e9;
+  background-image: linear-gradient(240deg, #01a2ff 0%, #80d0c7 100%);
+}
+.blue-gradient-rotated-fa {
+  background-color: #0093e9;
+  background-image: linear-gradient(323deg, #01a2ff 0%, #80d0c7 100%);
 }
 </style>
 <i18n>
