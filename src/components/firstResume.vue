@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card :class="themeColor" class="blue-gradient-rotated rounded-0" flat>
-      <v-btn @click="changeLang" icon color="primary">
+      <v-btn @click="changeLang" class="float-left" icon color="primary">
         <v-icon>mdi-translate</v-icon>
       </v-btn>
       <v-card-title class="d-flex justify-center px-0" primary-title>
