@@ -1,10 +1,15 @@
 <template>
   <div>
     <v-card :class="themeColor" class="blue-gradient-rotated rounded-0" flat>
-      <v-btn @click="changeLang" class="float-left" icon color="primary">
-        <v-icon>mdi-translate</v-icon>
-      </v-btn>
-      <v-card-title class="d-flex justify-center px-0" primary-title>
+      <v-card-actions
+        class="ma-0 pa-0 d-flex"
+        :class="this.$vuetify.rtl ? 'flex-row-reverse' : 'flex-row'"
+      >
+        <v-btn @click="changeLang" icon color="primary">
+          <v-icon>mdi-translate</v-icon>
+        </v-btn>
+      </v-card-actions>
+      <v-card-title class="d-flex justify-center px-0 pt-0 mt-n7" primary-title>
         <v-avatar size="164" tile>
           <v-img
             lazy-src="/src/assets/logo.png"
