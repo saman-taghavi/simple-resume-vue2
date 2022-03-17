@@ -12,7 +12,7 @@
       <v-card-title class="d-flex justify-center px-0 pt-0 mt-n7" primary-title>
         <v-avatar class="overflow-visible" size="164" tile>
           <v-img
-            lazy-src="/src/assets/logo.png"
+            lazy-src="https://pbs.twimg.com/profile_images/1131749152789073920/K4kggXqg.jpg"
             class="hex-img"
             src="https://avatars.githubusercontent.com/u/66922536"
           ></v-img>
