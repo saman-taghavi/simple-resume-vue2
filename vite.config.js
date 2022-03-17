@@ -2,12 +2,13 @@ import { createVuePlugin } from "vite-plugin-vue2";
 import viteComponents, { VuetifyResolver } from "vite-plugin-components";
 import path from "path";
 import { createI18nPlugin } from "@yfwz100/vite-plugin-vue2-i18n";
-
 /**
  * @type {import('vite').UserConfig}
  */
 module.exports = {
-  base: "/simple-resume-vue2/",
+  // dynamic base url
+
+  base: process.env.PROD ? "/simple-resume-vue2/" : "",
   resolve: {
     alias: [
       {
