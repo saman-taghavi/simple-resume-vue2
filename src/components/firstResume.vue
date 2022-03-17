@@ -10,7 +10,7 @@
         </v-btn>
       </v-card-actions>
       <v-card-title class="d-flex justify-center px-0 pt-0 mt-n7" primary-title>
-        <v-avatar size="164" tile>
+        <v-avatar class="overflow-visible" size="164" tile>
           <v-img
             lazy-src="/src/assets/logo.png"
             class="hex-img"
@@ -275,13 +275,14 @@ export default {
 <style>
 .hex-img {
   clip-path: polygon(
-    50% 0%,
-    90% 20%,
-    100% 60%,
-    75% 100%,
-    25% 100%,
-    0% 60%,
-    10% 20%
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
   );
 }
 .blue-gradient {
