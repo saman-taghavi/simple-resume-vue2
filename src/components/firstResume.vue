@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card color="lighten-1" :class="themeColor" flat>
+    <v-card :class="themeColor" class="blue-gradient-rotated rounded-0" flat>
       <v-btn @click="changeLang" icon color="primary">
         <v-icon>mdi-translate</v-icon>
       </v-btn>
@@ -83,7 +83,8 @@
         </v-col>
         <v-col
           :color="themeColor"
-          class="green red--text text--lighten-1"
+          class="red--text text--lighten-1 blue-gradient-rotated rounded-0"
+          elevation="0"
           cols="12"
           md="6"
         >
@@ -272,6 +273,14 @@ export default {
     0% 60%,
     10% 20%
   );
+}
+.blue-gradient {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+.blue-gradient-rotated {
+  background-color: #0093e9;
+  background-image: linear-gradient(240deg, #01a2ff 0%, #80d0c7 100%);
 }
 </style>
 <i18n>
