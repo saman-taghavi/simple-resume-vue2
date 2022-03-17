@@ -83,7 +83,12 @@
         </v-col>
         <v-col
           :color="themeColor"
-          class="red--text text--lighten-1 blue-gradient-rotated rounded-0"
+          :class="
+            this.$vuetify.rtl
+              ? 'blue-gradient-rotated-fa'
+              : 'blue-gradient-rotated'
+          "
+          class="red--text text--lighten-1 rounded-0"
           elevation="0"
           cols="12"
           md="6"
@@ -281,6 +286,10 @@ export default {
 .blue-gradient-rotated {
   background-color: #0093e9;
   background-image: linear-gradient(240deg, #01a2ff 0%, #80d0c7 100%);
+}
+.blue-gradient-rotated-fa {
+  background-color: #0093e9;
+  background-image: linear-gradient(323deg, #01a2ff 0%, #80d0c7 100%);
 }
 </style>
 <i18n>
